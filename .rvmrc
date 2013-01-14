@@ -1,1 +1,2 @@
 rvm use 1.9.3@reveal --create
+export PATH=$PATH:~/Code/revelation/bin/

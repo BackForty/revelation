@@ -18,5 +18,10 @@ module Revelation
         name: name
       )
     end
+
+    desc "present", "Start and open a presentation"
+    def present
+      `rackup config.ru && open http://localhost:9292`
+    end
   end
 end

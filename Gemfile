@@ -1,9 +1,9 @@
 source :rubygems
 
-gem 'activesupport', require: 'active_support/all'
-gem 'haml'
-gem 'rack'
-gem 'thor'
+gem 'activesupport', require: false
+gem 'haml', require: false
+gem 'rack', require: false
+gem 'thor', require: false
 
 group :development do
   gem 'shotgun'
