@@ -1,5 +1,5 @@
-require 'reveal'
+require 'revelation'
 
-class <%= config[:name].classify %> < Reveal::Presentation
+class <%= config[:name].classify %> < Revelation::Presentation
 
 end

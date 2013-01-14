@@ -1,4 +1,4 @@
 require './<%= config[:name] %>'
 
-run Rack::File.new(Reveal.root.join('public').to_s)
+run Rack::File.new(Revelation.root.join('public').to_s)
 run <%= config[:name].classify %>.new

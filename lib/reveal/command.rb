@@ -1,6 +1,6 @@
 require 'thor'
 
-module Reveal
+module Revelation
   class Command < Thor
     include Thor::Actions
 

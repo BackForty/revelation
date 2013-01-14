@@ -1,6 +1,6 @@
 require 'haml'
 
-module Reveal
+module Revelation
   class Presentation
     def author
       "Flip Sasser"
@@ -11,11 +11,11 @@ module Reveal
     end
 
     def slides
-      Dir[Reveal.root.join('slides', '**', '*.haml')]
+      Dir[Revelation.root.join('slides', '**', '*.haml')]
     end
 
     def title
-      "Reveal.js Presentation"
+      "Revelation Presentation"
     end
 
     def to_html
