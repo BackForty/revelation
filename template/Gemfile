@@ -1,0 +1,3 @@
+source :rubygems
+
+gem 'reveal', git: 'https://github.com/BackForty/revelation.git'

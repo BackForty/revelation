@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require File.expand_path(File.join('..', 'lib', 'reveal'), File.dirname(__FILE__))
+
+Reveal::Command.start

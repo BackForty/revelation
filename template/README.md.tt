@@ -1,0 +1,8 @@
+# Reveal.js
+## <%= config[:title] %>
+
+This is a presentation built using the Reveal.js gem, which generates a
+Rack-based Ruby application for you to design and present with.
+
+## Usage
+

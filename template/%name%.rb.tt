@@ -1,0 +1,5 @@
+require 'reveal'
+
+class <%= config[:name].classify %> < Reveal::Presentation
+
+end

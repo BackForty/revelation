@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title= title
+    %meta(charset='utf-8')
+    %meta{name: 'copyright', content: "Copyright (C) #{copyright = [2012, Date.today.year].uniq.join(' -')} #{author}"}
+    %meta{name: "author", content: author}
+    %meta{name: "robots", content: "index,follow"}
+    %link{href: '/favicon.ico', rel: 'shortcut icon', type: 'image/x-icon'}
+  %body
+    .reveal
+      .slides
+        = sections
+
