@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Flip Sasser"]
-  s.date = "2013-01-14"
+  s.date = "2013-01-15"
   s.description = ""
   s.email = "opensource@inthebackforty.com"
   s.executables = ["revelation"]
@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
     "lib/revelation/command.rb",
     "lib/revelation/layout.haml",
     "lib/revelation/presentation.rb",
-    "slides/001_welcome.haml",
+    "revelation.gemspec",
     "template/%name%.rb.tt",
     "template/Gemfile",
     "template/README.md.tt",
@@ -45,6 +45,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activesupport>, [">= 0"])
+      s.add_runtime_dependency(%q<configurator2>, [">= 0"])
       s.add_runtime_dependency(%q<haml>, [">= 0"])
       s.add_runtime_dependency(%q<rack>, [">= 0"])
       s.add_runtime_dependency(%q<thor>, [">= 0"])
@@ -52,6 +53,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<thin>, [">= 0"])
     else
       s.add_dependency(%q<activesupport>, [">= 0"])
+      s.add_dependency(%q<configurator2>, [">= 0"])
       s.add_dependency(%q<haml>, [">= 0"])
       s.add_dependency(%q<rack>, [">= 0"])
       s.add_dependency(%q<thor>, [">= 0"])
@@ -60,6 +62,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<activesupport>, [">= 0"])
+    s.add_dependency(%q<configurator2>, [">= 0"])
     s.add_dependency(%q<haml>, [">= 0"])
     s.add_dependency(%q<rack>, [">= 0"])
     s.add_dependency(%q<thor>, [">= 0"])
