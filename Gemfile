@@ -10,3 +10,9 @@ group :development do
   gem 'shotgun'
   gem 'thin'
 end
+
+group :test do
+  gem 'nokogiri'
+  gem 'rack-test'
+  gem 'rspec'
+end
