@@ -22,13 +22,13 @@ module Revelation
     method_option :port, :aliases => ['-p'], :default => 9292, :type => :numeric
     def present
       fork do
+        sleep 1
+      `open http://localhost:#{options[:port]}`
         begin
-          `rackup config.ru -p #{options[:port]}`
         rescue SystemExit, Interrupt
         end
       end
-      sleep 1
-      `open http://localhost:#{options[:port]}`
+      `rackup config.ru -p #{options[:port]}`
       Process.wait
     rescue SystemExit, Interrupt
       warn "\nEnding presentation..."
