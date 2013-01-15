@@ -1,5 +1,7 @@
+require 'rubygems'
 require 'configurator'
 require 'haml'
+require 'rack'
 
 module Revelation
   class Presentation
@@ -7,9 +9,6 @@ module Revelation
 
     class << self
       def presentation(&block)
-        if block_given?
-          config(&block)
-        end
         app = new.tap do |presentation|
           presentation.config(&block) if block_given?
         end
@@ -21,10 +20,10 @@ module Revelation
     end
 
     def call(env)
-      if env['REQUEST_URI'] == '/'
+      if env['REQUEST_URI'] == '/' || env['PATH_INFO'] == '/'
         [200, {'Content-Type' => 'text/html'}, [to_html]]
       else
-        [404, {'Content-Type' => 'text/html'}, []]
+        [404, {'Content-Type' => 'text/html'}, ['i dunno']]
       end
     end
 
@@ -58,7 +57,7 @@ module Revelation
         slide_path = Revelation.root.join('slides', "#{slide_path}.haml")
       end
       slide_id = File.basename(slide_path, File.extname(slide_path))
-      Haml::Engine.new("%section##{slide_id}= partial(#{slide_path.inspect})").render(self)
+      Haml::Engine.new("%section##{slide_id}= partial(#{slide_path.to_s.inspect})").render(self)
     end
   end
 end
