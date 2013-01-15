@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "revelation"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Flip Sasser"]
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    ".rspec",
     ".rvmrc",
     "Gemfile",
     "Gemfile.lock",
@@ -30,10 +31,73 @@ Gem::Specification.new do |s|
     "lib/revelation/layout.haml",
     "lib/revelation/presentation.rb",
     "revelation.gemspec",
+    "spec/lib/revelation/presentation_spec.rb",
+    "spec/lib/revelation_spec.rb",
+    "spec/spec_helper.rb",
     "template/%name%.rb.tt",
     "template/Gemfile",
     "template/README.md.tt",
-    "template/config.ru.tt"
+    "template/config.ru.tt",
+    "template/public/javascripts/config.js",
+    "template/public/javascripts/lib/classList.js",
+    "template/public/javascripts/lib/head.min.js",
+    "template/public/javascripts/lib/html5shiv.js",
+    "template/public/javascripts/lib/plugins/highlight/highlight.js",
+    "template/public/javascripts/lib/plugins/markdown/markdown.js",
+    "template/public/javascripts/lib/plugins/markdown/showdown.js",
+    "template/public/javascripts/lib/plugins/notes-server/client.js",
+    "template/public/javascripts/lib/plugins/notes-server/index.js",
+    "template/public/javascripts/lib/plugins/notes-server/notes.html",
+    "template/public/javascripts/lib/plugins/notes/notes.html",
+    "template/public/javascripts/lib/plugins/notes/notes.js",
+    "template/public/javascripts/lib/plugins/postmessage/example.html",
+    "template/public/javascripts/lib/plugins/postmessage/postmessage.js",
+    "template/public/javascripts/lib/plugins/print-pdf/print-pdf.js",
+    "template/public/javascripts/lib/plugins/remotes/remotes.js",
+    "template/public/javascripts/lib/plugins/zoom-js/zoom.js",
+    "template/public/javascripts/lib/reveal.min.js",
+    "template/public/javascripts/presentation.js",
+    "template/public/stylesheets/colorschemes/arta.css",
+    "template/public/stylesheets/colorschemes/ascetic.css",
+    "template/public/stylesheets/colorschemes/brown_paper.css",
+    "template/public/stylesheets/colorschemes/brown_papersq.png",
+    "template/public/stylesheets/colorschemes/dark.css",
+    "template/public/stylesheets/colorschemes/default.css",
+    "template/public/stylesheets/colorschemes/far.css",
+    "template/public/stylesheets/colorschemes/github.css",
+    "template/public/stylesheets/colorschemes/googlecode.css",
+    "template/public/stylesheets/colorschemes/idea.css",
+    "template/public/stylesheets/colorschemes/ir_black.css",
+    "template/public/stylesheets/colorschemes/magula.css",
+    "template/public/stylesheets/colorschemes/monokai.css",
+    "template/public/stylesheets/colorschemes/pojoaque.css",
+    "template/public/stylesheets/colorschemes/pojoaque.jpg",
+    "template/public/stylesheets/colorschemes/rainbow.css",
+    "template/public/stylesheets/colorschemes/school_book.css",
+    "template/public/stylesheets/colorschemes/school_book.png",
+    "template/public/stylesheets/colorschemes/solarized_dark.css",
+    "template/public/stylesheets/colorschemes/solarized_light.css",
+    "template/public/stylesheets/colorschemes/sunburst.css",
+    "template/public/stylesheets/colorschemes/tomorrow-night-blue.css",
+    "template/public/stylesheets/colorschemes/tomorrow-night-bright.css",
+    "template/public/stylesheets/colorschemes/tomorrow-night-eighties.css",
+    "template/public/stylesheets/colorschemes/tomorrow-night.css",
+    "template/public/stylesheets/colorschemes/tomorrow.css",
+    "template/public/stylesheets/colorschemes/vs.css",
+    "template/public/stylesheets/colorschemes/xcode.css",
+    "template/public/stylesheets/colorschemes/zenburn.css",
+    "template/public/stylesheets/lib/print/paper.css",
+    "template/public/stylesheets/lib/print/pdf.css",
+    "template/public/stylesheets/lib/reveal.min.css",
+    "template/public/stylesheets/presentation.css",
+    "template/public/stylesheets/themes/beige.css",
+    "template/public/stylesheets/themes/default.css",
+    "template/public/stylesheets/themes/night.css",
+    "template/public/stylesheets/themes/serif.css",
+    "template/public/stylesheets/themes/simple.css",
+    "template/public/stylesheets/themes/sky.css",
+    "template/slides.haml",
+    "template/slides/introduction.haml"
   ]
   s.homepage = "http://www.inthebackforty.com/"
   s.require_paths = ["lib"]
