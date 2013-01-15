@@ -12,8 +12,15 @@ module Revelation
         app = new.tap do |presentation|
           presentation.config(&block) if block_given?
         end
+
+        # Build a list of static files
+        public_path = Revelation.root.join('public')
+        public_urls = Dir[public_path.join('*')]
+        public_urls = public_urls.select{|file| File.directory?(file) }
+        public_urls = public_urls.map{|file| file.gsub(public_path.to_s, '') }
+
         Rack::Builder.new do
-          run Rack::File.new(Revelation.root.join('public').to_s)
+          use Rack::Static, root: public_path.to_s, urls: public_urls
           run app
         end
       end
