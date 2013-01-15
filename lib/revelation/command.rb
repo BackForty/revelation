@@ -36,8 +36,20 @@ module Revelation
     end
 
     desc "present", "Start and open a presentation"
+    method_option :port, :aliases => ['-p'], :default => 9292, :type => :numeric
     def present
-      `rackup config.ru && open http://localhost:9292`
+      pid = fork do
+        begin
+          `rackup config.ru -p #{options[:port]}`
+        rescue SystemExit, Interrupt
+        end
+      end
+      sleep 1
+      `open http://localhost:#{options[:port]}`
+      Process.wait
+    rescue SystemExit, Interrupt
+      warn "\nEnding presentation..."
+      exit 1
     end
   end
 end

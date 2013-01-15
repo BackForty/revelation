@@ -1,14 +1,26 @@
 !!! 5
 %html
   %head
-    %title= title
-    %meta(charset='utf-8')
-    %meta{name: 'copyright', content: "Copyright (C) #{copyright = [2012, Date.today.year].uniq.join(' -')} #{author}"}
-    %meta{name: "author", content: author}
-    %meta{name: "robots", content: "index,follow"}
+    %title= config.title
+    %meta(charset='utf-8')/
+    %meta{name: 'copyright', content: "Copyright (C) #{copyright = [2012, Date.today.year].uniq.join(' -')} #{config.author}"}/
+    %meta{name: "author", content: config.author}/
+    %meta{name: "robots", content: "index,follow"}/
+    %meta{name: "apple-mobile-web-app-capable", content: :yes}/
+    %meta{name:" apple-mobile-web-app-status-bar-status", content: "black-translucent"}/
+    %link{href: "/stylesheets/reveal.min.css", rel: :stylesheet}/
+    %link{href: "/stylesheets/theme/default.css", id: :theme, rel: :stylesheet}/
+    %link{href: "/stylesheets/zenburn.css", rel: :stylesheet}
+    :javascript
+      document.write( '<link rel="stylesheet" href="/stylesheets/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    /[if lt IE9]
+      %script{src: "/javascripts/html5shiv.js", type: "text/javascript"}
     %link{href: '/favicon.ico', rel: 'shortcut icon', type: 'image/x-icon'}
   %body
     .reveal
       .slides
-        = sections
-
+        - begin
+          = partial('slides.haml')
+        - rescue Errno::ENOENT
+          - slides.each do |slide_path|
+            = slide(slide_path)

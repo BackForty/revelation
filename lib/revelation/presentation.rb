@@ -1,21 +1,42 @@
+require 'configurator'
 require 'haml'
 
 module Revelation
   class Presentation
-    def author
-      "Flip Sasser"
+    include Configurator
+
+    class << self
+      def presentation(&block)
+        if block_given?
+          config(&block)
+        end
+        app = new.tap do |presentation|
+          presentation.config(&block) if block_given?
+        end
+        Rack::Builder.new do
+          run Rack::File.new(Revelation.root.join('public').to_s)
+          run app
+        end
+      end
     end
 
     def call(env)
-      [200, {'Content-Type' => 'text/html'}, [to_html]]
+      if env['REQUEST_URI'] == '/'
+        [200, {'Content-Type' => 'text/html'}, [to_html]]
+      else
+        [404, {'Content-Type' => 'text/html'}, []]
+      end
+    end
+
+    def initialize
+      option :author, "Flip Sasser"
+      option :colorscheme, :zenburn
+      option :theme, :default
+      option :title, "Revelation Presentation"
     end
 
     def slides
       Dir[Revelation.root.join('slides', '**', '*.haml')]
-    end
-
-    def title
-      "Revelation Presentation"
     end
 
     def to_html
@@ -31,8 +52,13 @@ module Revelation
       Haml::Engine.new(File.read(path)).render(self)
     end
 
-    def sections
-      slides.map {|slide| Haml::Engine.new("%section= partial(#{slide.inspect})").render(self) }.join("\n")
+    def slide(slide_path)
+      slide_path = slide_path.to_s
+      unless slide_path =~ /^\// || slide_path =~ /\.haml$/
+        slide_path = Revelation.root.join('slides', "#{slide_path}.haml")
+      end
+      slide_id = File.basename(slide_path, File.extname(slide_path))
+      Haml::Engine.new("%section##{slide_id}= partial(#{slide_path.inspect})").render(self)
     end
   end
 end

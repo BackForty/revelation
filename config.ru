@@ -1,4 +1,7 @@
-require './lib/reveal'
+require './lib/revelation'
 
-run Rack::File.new(Reveal.root.join('public').to_s)
-run Reveal::Presentation.new
+run Revelation::Presentation.presentation do
+
+end
+#run Rack::File.new(Revelation.root.join('public').to_s)
+#run Revelation::Presentation.new

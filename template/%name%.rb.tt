@@ -9,5 +9,4 @@ Bundler.require(:default, ENV['RACK_ENV'])
 require 'revelation'
 
 class <%= config[:name].classify %> < Revelation::Presentation
-
 end
