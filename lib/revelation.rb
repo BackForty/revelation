@@ -1,3 +1,5 @@
+require 'rubygems'
+
 # Add revelation to the load path
 $LOAD_PATH.push File.dirname(__FILE__)
 
