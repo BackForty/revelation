@@ -13,15 +13,24 @@ module Revelation
           presentation.config(&block) if block_given?
         end
 
-        # Build a list of static files
-        public_path = Revelation.root.join('public')
-        public_urls = Dir[public_path.join('*')]
-        public_urls = public_urls.select{|file| File.directory?(file) }
-        public_urls = public_urls.map{|file| file.gsub(public_path.to_s, '') }
-
         Rack::Builder.new do
-          use Rack::Static, root: public_path.to_s, urls: public_urls
+          use Rack::Static,
+            root: Revelation::Presentation.public_path.to_s,
+            urls: Revelation::Presentation.public_urls
           run app
+        end
+      end
+
+      def public_path
+        @public_path ||= Revelation.root.join('public')
+      end
+
+      def public_urls
+        @public_urls ||= begin
+          # Build a list of static files
+          public_urls = Dir[public_path.join('*')]
+          public_urls = public_urls.select{|file| File.directory?(file) }
+          public_urls.map{|file| file.gsub(public_path.to_s, '') }
         end
       end
     end

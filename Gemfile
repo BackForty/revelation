@@ -12,7 +12,8 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'nokogiri'
-  gem 'rack-test'
   gem 'rspec'
+  gem 'simplecov', require: false
 end

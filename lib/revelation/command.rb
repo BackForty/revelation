@@ -23,10 +23,7 @@ module Revelation
     def present
       fork do
         sleep 1
-      `open http://localhost:#{options[:port]}`
-        begin
-        rescue SystemExit, Interrupt
-        end
+        `open http://localhost:#{options[:port]}`
       end
       `rackup config.ru -p #{options[:port]}`
       Process.wait

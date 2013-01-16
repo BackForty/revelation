@@ -2,4 +2,5 @@
 *.swp
 .bundle
 .DS_Store
+coverage/
 pkg/*

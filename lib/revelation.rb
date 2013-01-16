@@ -1,10 +1,9 @@
-require 'rubygems'
-
 # Add revelation to the load path
 $LOAD_PATH.push File.dirname(__FILE__)
 
-require 'active_support/all'
 require 'pathname'
+require 'rubygems'
+require 'active_support/all'
 
 module Revelation
   autoload :Command, 'revelation/command'

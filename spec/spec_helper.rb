@@ -6,6 +6,8 @@ require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default, :test)
 
+require 'simplecov'
+
 require 'revelation'
 
 RSpec.configure do |config|

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Revelation::Presentation do
   let(:presentation) { described_class.new }
@@ -25,47 +25,44 @@ describe Revelation::Presentation do
   describe ".presentation method" do
     it "accepts a block that executes the configuration" do
       rack_app = described_class.presentation do
-        theme :foo
         colorscheme :bar
+        root File.expand_path(File.join('..', '..', 'fixtures'), File.dirname(__FILE__))
+        theme :foo
       end
       rack_app.instance_variable_get(:@run).config.theme.should == :foo
     end
   end
 
   describe "a live app" do
-    include Rack::Test::Methods
+    include Capybara::DSL
 
-    before { get '/' }
-
-    def find(selector)
-      html.css(selector)
-    end
-
-    def first(selector)
-     find(selector).first
-    end
-
-
-    let :app do
-      Revelation::Presentation.presentation do
+    before do
+      Capybara.app = Revelation::Presentation.presentation do
         title "AwesomeSauce"
         theme :foo
         colorscheme :bar
       end
     end
 
-    let(:html) { Nokogiri::HTML.parse last_response.body }
-
     it "responds to the root URL with the presentation" do
-      last_response.should be_ok
+      visit "/"
+      page.status_code.should == 200
     end
 
     it "names the document after the title of the presentation" do
-      first('head title').content.should == "AwesomeSauce"
+      visit "/"
+      page.should have_css("head title", "AwesomeSauce")
+      #first("title").native.text.should == "AwesomeSauce"
     end
 
     it "includes the correct theme stylesheet" do
-      first('link#theme')['href'].should == "/stylesheets/themes/foo.css"
+      visit "/"
+      first("link#theme")["href"].should == "/stylesheets/themes/foo.css"
+    end
+
+    it "returns 404 when it can't find a file" do
+      visit "/foobar"
+      page.status_code.should == 404
     end
   end
 end
