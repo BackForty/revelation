@@ -1,6 +1,6 @@
 require './<%= config[:name] %>'
 
-run(<%= config[:name].classify %>.presentation {
-  theme :default
+run(<%= config[:name].classify %>.present {
   colorscheme :zenburn
+  theme :default
 })

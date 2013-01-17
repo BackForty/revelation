@@ -53,7 +53,7 @@ describe Revelation::Presentation do
 
     %w(config.js presentation.js presentation.css).each do |file|
       it "knows about #{file}" do
-        file_contents = File.read(Revelation.root.join('template', 'presentation', file))
+        file_contents = File.read(Revelation.root.join('template', 'config', file))
         visit "/#{file}"
         page.body.should == file_contents
       end

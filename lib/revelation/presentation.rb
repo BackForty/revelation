@@ -40,12 +40,12 @@ module Revelation
       when 'config.js', 'presentation.js'
         respond(
           'application/javascript',
-          File.read(root.join('presentation', path))
+          File.read(root.join('config', path))
         )
       when 'presentation.css'
         respond(
           'text/stylesheet',
-          File.read(root.join('presentation', path))
+          File.read(root.join('config', path))
         )
       else
         @app.call(env)
