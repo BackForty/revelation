@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Revelation::Presentation do
-  let(:presentation) { described_class.new }
+  let(:presentation) { described_class }
 
   describe "defaults" do
     it "uses the theme ':default'" do
@@ -13,34 +13,15 @@ describe Revelation::Presentation do
     end
   end
 
-  it "accepts a configuration block" do
-    presentation.config do
-      theme :foo
-      colorscheme :bar
-    end
-    presentation.config.theme.should == :foo
-    presentation.config.colorscheme.should == :bar
-  end
-
-  describe ".presentation method" do
-    it "accepts a block that executes the configuration" do
-      rack_app = described_class.presentation do
-        colorscheme :bar
-        root File.expand_path(File.join('..', '..', 'fixtures'), File.dirname(__FILE__))
-        theme :foo
-      end
-      rack_app.instance_variable_get(:@run).config.theme.should == :foo
-    end
-  end
-
   describe "a live app" do
     include Capybara::DSL
 
     before do
-      Capybara.app = Revelation::Presentation.presentation do
-        title "AwesomeSauce"
-        theme :foo
+      Capybara.app = Revelation::Presentation.present do
         colorscheme :bar
+        root File.expand_path(File.join('..', '..', 'fixtures'), File.dirname(__FILE__))
+        theme :foo
+        title "AwesomeSauce"
       end
     end
 
@@ -52,7 +33,7 @@ describe Revelation::Presentation do
     it "names the document after the title of the presentation" do
       visit "/"
       page.should have_css("head title", "AwesomeSauce")
-      #first("title").native.text.should == "AwesomeSauce"
+      first("title").native.text.should == "AwesomeSauce"
     end
 
     it "includes the correct theme stylesheet" do
@@ -63,6 +44,19 @@ describe Revelation::Presentation do
     it "returns 404 when it can't find a file" do
       visit "/foobar"
       page.status_code.should == 404
+    end
+
+    it "serves static files in the public folder" do
+      visit "/javascripts/reveal.min.js"
+      page.status_code.should == 200
+    end
+
+    %w(config.js presentation.js presentation.css).each do |file|
+      it "knows about #{file}" do
+        file_contents = File.read(Revelation.root.join('template', 'presentation', file))
+        visit "/#{file}"
+        page.body.should == file_contents
+      end
     end
   end
 end
