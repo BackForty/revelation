@@ -39,7 +39,7 @@ module Revelation
       if env['REQUEST_URI'] == '/' || env['PATH_INFO'] == '/'
         [200, {'Content-Type' => 'text/html'}, [to_html]]
       else
-        [404, {'Content-Type' => 'text/html'}, ['i dunno']]
+        [404, {'Content-Type' => 'text/html'}, ["<h1>404 File Not Found</h1><p>Couldn't find whatever you were looking for, friend."]]
       end
     end
 
