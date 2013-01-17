@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Flip Sasser"]
-  s.date = "2013-01-15"
+  s.date = "2013-01-17"
   s.description = ""
   s.email = "opensource@inthebackforty.com"
   s.executables = ["revelation"]
@@ -17,10 +17,6 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
-    ".rspec",
-    ".rvmrc",
-    "Gemfile",
-    "Gemfile.lock",
     "README.md",
     "Rakefile",
     "VERSION",
@@ -31,9 +27,10 @@ Gem::Specification.new do |s|
     "lib/revelation/layout.haml",
     "lib/revelation/presentation.rb",
     "revelation.gemspec",
+    "spec/fixtures/slides/introduction.haml",
+    "spec/lib/revelation/command_spec.rb",
     "spec/lib/revelation/presentation_spec.rb",
     "spec/lib/revelation_spec.rb",
-    "spec/spec_helper.rb",
     "template/%name%.rb.tt",
     "template/Gemfile",
     "template/README.md.tt",
@@ -97,7 +94,8 @@ Gem::Specification.new do |s|
     "template/public/stylesheets/themes/simple.css",
     "template/public/stylesheets/themes/sky.css",
     "template/slides.haml",
-    "template/slides/introduction.haml"
+    "template/slides/introduction.haml",
+    "template/slides/slide_2.haml"
   ]
   s.homepage = "http://www.inthebackforty.com/"
   s.require_paths = ["lib"]
