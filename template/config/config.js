@@ -11,7 +11,7 @@ Reveal.initialize({
   // Optional libraries used to extend on reveal.js
   dependencies: [
     // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
-    { src: '/javascripts/lib/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '/javascripts/classList.js', condition: function() { return !document.body.classList; } },
 
     // Interpret Markdown in <section> elements
     { src: '/javascripts/plugins/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
