@@ -10,7 +10,7 @@
     %meta{name:" apple-mobile-web-app-status-bar-status", content: "black-translucent"}/
     %link{href: "/stylesheets/reveal.min.css", rel: :stylesheet}/
     %link{href: "/stylesheets/themes/#{config.theme}.css", id: :theme, rel: :stylesheet}/
-    %link{href: "/stylesheets/colorschemes/zenburn.css", rel: :stylesheet}/
+    %link{href: "/stylesheets/colorschemes/#{config.colorscheme}.css", rel: :stylesheet}/
     :javascript
       document.write( '<link rel="stylesheet" href="/stylesheets/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
     /[if lt IE9]
