@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "revelation"
-  s.version = "0.0.2"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Flip Sasser"]
-  s.date = "2013-01-17"
+  s.date = "2013-01-18"
   s.description = ""
   s.email = "opensource@inthebackforty.com"
   s.executables = ["revelation"]
@@ -27,7 +27,68 @@ Gem::Specification.new do |s|
     "lib/revelation/layout.haml",
     "lib/revelation/presentation.rb",
     "revelation.gemspec",
+    "spec/fixtures/config/config.js",
+    "spec/fixtures/config/presentation.css",
+    "spec/fixtures/config/presentation.js",
+    "spec/fixtures/public/javascripts/classList.js",
+    "spec/fixtures/public/javascripts/head.min.js",
+    "spec/fixtures/public/javascripts/html5shiv.js",
+    "spec/fixtures/public/javascripts/plugins/highlight/highlight.js",
+    "spec/fixtures/public/javascripts/plugins/markdown/markdown.js",
+    "spec/fixtures/public/javascripts/plugins/markdown/showdown.js",
+    "spec/fixtures/public/javascripts/plugins/notes-server/client.js",
+    "spec/fixtures/public/javascripts/plugins/notes-server/index.js",
+    "spec/fixtures/public/javascripts/plugins/notes-server/notes.html",
+    "spec/fixtures/public/javascripts/plugins/notes/notes.html",
+    "spec/fixtures/public/javascripts/plugins/notes/notes.js",
+    "spec/fixtures/public/javascripts/plugins/postmessage/example.html",
+    "spec/fixtures/public/javascripts/plugins/postmessage/postmessage.js",
+    "spec/fixtures/public/javascripts/plugins/print-pdf/print-pdf.js",
+    "spec/fixtures/public/javascripts/plugins/remotes/remotes.js",
+    "spec/fixtures/public/javascripts/plugins/zoom-js/zoom.js",
+    "spec/fixtures/public/javascripts/reveal.min.js",
+    "spec/fixtures/public/stylesheets/colorschemes/arta.css",
+    "spec/fixtures/public/stylesheets/colorschemes/ascetic.css",
+    "spec/fixtures/public/stylesheets/colorschemes/brown_paper.css",
+    "spec/fixtures/public/stylesheets/colorschemes/brown_papersq.png",
+    "spec/fixtures/public/stylesheets/colorschemes/dark.css",
+    "spec/fixtures/public/stylesheets/colorschemes/default.css",
+    "spec/fixtures/public/stylesheets/colorschemes/far.css",
+    "spec/fixtures/public/stylesheets/colorschemes/github.css",
+    "spec/fixtures/public/stylesheets/colorschemes/googlecode.css",
+    "spec/fixtures/public/stylesheets/colorschemes/idea.css",
+    "spec/fixtures/public/stylesheets/colorschemes/ir_black.css",
+    "spec/fixtures/public/stylesheets/colorschemes/magula.css",
+    "spec/fixtures/public/stylesheets/colorschemes/monokai.css",
+    "spec/fixtures/public/stylesheets/colorschemes/pojoaque.css",
+    "spec/fixtures/public/stylesheets/colorschemes/pojoaque.jpg",
+    "spec/fixtures/public/stylesheets/colorschemes/rainbow.css",
+    "spec/fixtures/public/stylesheets/colorschemes/school_book.css",
+    "spec/fixtures/public/stylesheets/colorschemes/school_book.png",
+    "spec/fixtures/public/stylesheets/colorschemes/solarized_dark.css",
+    "spec/fixtures/public/stylesheets/colorschemes/solarized_light.css",
+    "spec/fixtures/public/stylesheets/colorschemes/sunburst.css",
+    "spec/fixtures/public/stylesheets/colorschemes/tomorrow-night-blue.css",
+    "spec/fixtures/public/stylesheets/colorschemes/tomorrow-night-bright.css",
+    "spec/fixtures/public/stylesheets/colorschemes/tomorrow-night-eighties.css",
+    "spec/fixtures/public/stylesheets/colorschemes/tomorrow-night.css",
+    "spec/fixtures/public/stylesheets/colorschemes/tomorrow.css",
+    "spec/fixtures/public/stylesheets/colorschemes/vs.css",
+    "spec/fixtures/public/stylesheets/colorschemes/xcode.css",
+    "spec/fixtures/public/stylesheets/colorschemes/zenburn.css",
+    "spec/fixtures/public/stylesheets/print/paper.css",
+    "spec/fixtures/public/stylesheets/print/pdf.css",
+    "spec/fixtures/public/stylesheets/reveal.min.css",
+    "spec/fixtures/public/stylesheets/themes/beige.css",
+    "spec/fixtures/public/stylesheets/themes/default.css",
+    "spec/fixtures/public/stylesheets/themes/night.css",
+    "spec/fixtures/public/stylesheets/themes/serif.css",
+    "spec/fixtures/public/stylesheets/themes/simple.css",
+    "spec/fixtures/public/stylesheets/themes/sky.css",
+    "spec/fixtures/slides.haml",
     "spec/fixtures/slides/introduction.haml",
+    "spec/fixtures/slides/markdown_test.md",
+    "spec/fixtures/slides/slide_2.haml",
     "spec/lib/revelation/command_spec.rb",
     "spec/lib/revelation/presentation_spec.rb",
     "spec/lib/revelation_spec.rb",
@@ -35,25 +96,30 @@ Gem::Specification.new do |s|
     "template/Gemfile",
     "template/README.md.tt",
     "template/config.ru.tt",
-    "template/public/javascripts/config.js",
-    "template/public/javascripts/lib/classList.js",
-    "template/public/javascripts/lib/head.min.js",
-    "template/public/javascripts/lib/html5shiv.js",
-    "template/public/javascripts/lib/plugins/highlight/highlight.js",
-    "template/public/javascripts/lib/plugins/markdown/markdown.js",
-    "template/public/javascripts/lib/plugins/markdown/showdown.js",
-    "template/public/javascripts/lib/plugins/notes-server/client.js",
-    "template/public/javascripts/lib/plugins/notes-server/index.js",
-    "template/public/javascripts/lib/plugins/notes-server/notes.html",
-    "template/public/javascripts/lib/plugins/notes/notes.html",
-    "template/public/javascripts/lib/plugins/notes/notes.js",
-    "template/public/javascripts/lib/plugins/postmessage/example.html",
-    "template/public/javascripts/lib/plugins/postmessage/postmessage.js",
-    "template/public/javascripts/lib/plugins/print-pdf/print-pdf.js",
-    "template/public/javascripts/lib/plugins/remotes/remotes.js",
-    "template/public/javascripts/lib/plugins/zoom-js/zoom.js",
-    "template/public/javascripts/lib/reveal.min.js",
-    "template/public/javascripts/presentation.js",
+    "template/config/config.js",
+    "template/config/presentation.js",
+    "template/public/fonts/league_gothic-webfont.eot",
+    "template/public/fonts/league_gothic-webfont.svg",
+    "template/public/fonts/league_gothic-webfont.ttf",
+    "template/public/fonts/league_gothic-webfont.woff",
+    "template/public/fonts/league_gothic_license",
+    "template/public/javascripts/classList.js",
+    "template/public/javascripts/head.min.js",
+    "template/public/javascripts/html5shiv.js",
+    "template/public/javascripts/plugins/highlight/highlight.js",
+    "template/public/javascripts/plugins/markdown/markdown.js",
+    "template/public/javascripts/plugins/markdown/showdown.js",
+    "template/public/javascripts/plugins/notes-server/client.js",
+    "template/public/javascripts/plugins/notes-server/index.js",
+    "template/public/javascripts/plugins/notes-server/notes.html",
+    "template/public/javascripts/plugins/notes/notes.html",
+    "template/public/javascripts/plugins/notes/notes.js",
+    "template/public/javascripts/plugins/postmessage/example.html",
+    "template/public/javascripts/plugins/postmessage/postmessage.js",
+    "template/public/javascripts/plugins/print-pdf/print-pdf.js",
+    "template/public/javascripts/plugins/remotes/remotes.js",
+    "template/public/javascripts/plugins/zoom-js/zoom.js",
+    "template/public/javascripts/reveal.min.js",
     "template/public/stylesheets/colorschemes/arta.css",
     "template/public/stylesheets/colorschemes/ascetic.css",
     "template/public/stylesheets/colorschemes/brown_paper.css",
@@ -83,10 +149,9 @@ Gem::Specification.new do |s|
     "template/public/stylesheets/colorschemes/vs.css",
     "template/public/stylesheets/colorschemes/xcode.css",
     "template/public/stylesheets/colorschemes/zenburn.css",
-    "template/public/stylesheets/lib/print/paper.css",
-    "template/public/stylesheets/lib/print/pdf.css",
-    "template/public/stylesheets/lib/reveal.min.css",
-    "template/public/stylesheets/presentation.css",
+    "template/public/stylesheets/print/paper.css",
+    "template/public/stylesheets/print/pdf.css",
+    "template/public/stylesheets/reveal.min.css",
     "template/public/stylesheets/themes/beige.css",
     "template/public/stylesheets/themes/default.css",
     "template/public/stylesheets/themes/night.css",
@@ -110,6 +175,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<configurator2>, [">= 0"])
       s.add_runtime_dependency(%q<haml>, [">= 0"])
       s.add_runtime_dependency(%q<rack>, [">= 0"])
+      s.add_runtime_dependency(%q<tilt>, [">= 0"])
       s.add_runtime_dependency(%q<thor>, [">= 0"])
       s.add_development_dependency(%q<shotgun>, [">= 0"])
       s.add_development_dependency(%q<thin>, [">= 0"])
@@ -118,6 +184,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<configurator2>, [">= 0"])
       s.add_dependency(%q<haml>, [">= 0"])
       s.add_dependency(%q<rack>, [">= 0"])
+      s.add_dependency(%q<tilt>, [">= 0"])
       s.add_dependency(%q<thor>, [">= 0"])
       s.add_dependency(%q<shotgun>, [">= 0"])
       s.add_dependency(%q<thin>, [">= 0"])
@@ -127,6 +194,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<configurator2>, [">= 0"])
     s.add_dependency(%q<haml>, [">= 0"])
     s.add_dependency(%q<rack>, [">= 0"])
+    s.add_dependency(%q<tilt>, [">= 0"])
     s.add_dependency(%q<thor>, [">= 0"])
     s.add_dependency(%q<shotgun>, [">= 0"])
     s.add_dependency(%q<thin>, [">= 0"])
