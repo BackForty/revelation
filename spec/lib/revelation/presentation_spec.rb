@@ -51,7 +51,12 @@ describe Revelation::Presentation do
       page.status_code.should == 200
     end
 
-    %w(config.js presentation.js presentation.css).each do |file|
+    it "serves Markdown files" do
+      visit "/"
+      page.should have_content("I am a markdown file")
+    end
+
+    %w(config.js presentation.js).each do |file|
       it "knows about #{file}" do
         file_contents = File.read(Revelation.root.join('template', 'config', file))
         visit "/#{file}"

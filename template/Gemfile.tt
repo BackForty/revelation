@@ -1,0 +1,11 @@
+source :rubygems
+
+gem 'revelation', '<%= File.read(File.expand_path(File.join('VERSION'), File.dirname(__FILE__))) %>'
+
+# Template engines: comment one or more in for automatic
+# support of your preferred template engine.
+# gem 'builder' # For .builder templates
+# gem 'liquid'  # For .liquid templates
+# gem 'rdiscount' # For Markdown (.md) templates
+# gem 'redcloth' # For Textile templates
+# gem 'creole' # For Wiki markup

@@ -2,6 +2,7 @@ require 'rubygems'
 require 'configurator'
 require 'haml'
 require 'rack'
+require 'tilt'
 
 module Revelation
   class Presentation
@@ -42,11 +43,6 @@ module Revelation
           'application/javascript',
           File.read(root.join('config', path))
         )
-      when 'presentation.css'
-        respond(
-          'text/stylesheet',
-          File.read(root.join('config', path))
-        )
       else
         @app.call(env)
       end
@@ -67,7 +63,7 @@ module Revelation
     end
 
     def slides
-      Dir[root.join('slides', '**', '*.haml')]
+      Dir[root.join('slides', '**', '*')]
     end
 
     def to_html
@@ -80,7 +76,10 @@ module Revelation
     end
 
     def partial(path)
-      Haml::Engine.new(File.read(path)).render(self)
+      unless path =~ /^\//
+        path = root.join(path)
+      end
+      Tilt.new(path.to_s).render(self)
     end
 
     def respond(content_type, content)
@@ -89,8 +88,9 @@ module Revelation
 
     def slide(slide_path)
       slide_path = slide_path.to_s
-      unless slide_path =~ /^\// || slide_path =~ /\.haml$/
-        slide_path = root.join('slides', "#{slide_path}.haml")
+      unless slide_path =~ /^\// || slide_path =~ /\.\w+$/
+        slide_path = root.join('slides', slide_path)
+        return "" unless slide_path = Dir["#{slide_path}.*"].first
       end
       slide_id = File.basename(slide_path, File.extname(slide_path))
       Haml::Engine.new("%section##{slide_id}= partial(#{slide_path.to_s.inspect})").render(self)

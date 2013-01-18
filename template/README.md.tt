@@ -1,8 +1,60 @@
 # Revelation
-## <%= config[:title] %>
 
 This is a presentation built using the Revelation.js gem, which generates a
-Rack-based Ruby application for you to design and present with.
+Rack-based Ruby application with which you design and present.
 
-## Usage
+## Directory Structure
+
+- `config`
+	- `config.js`: the file to configure Reveal.js' behavior
+	- `presentation.js`: the file to add listeners or otherwise customize functionality
+- `config.ru`: the rackup file used to run your application. Use it to configure your presentation meta data (more on this later).
+- `Gemfile`: the gems required by the presentation. Usually jus`t revelati`on but you can add template languages, CSS frameworks here, or any other ruby library here, too-
+- `public`: the folder containing static assets for your presentation.
+	- `javascripts`: JavaScript files
+	- `stylsheets`: Stylesheets (duh).
+	- *Note:* You can also add images to a directory here and use them in your presentation.
+- `README.md`: this file
+- `slides`: the individual slides for your presentation.
+- `slides.haml` the HAML file that renders your slides. You can remove or change the order of slides here.
+
+## Configuration
+
+All meta data and configuration happens inside of `config.ru`. Take a look and you'll see it's currently setting a `colorscheme` for code syntax highlighting and a `theme` for your presentation.
+
+There are other options you can specify as follows:
+
+```
+author "Flip Sasser"
+colorscheme :zenburn
+root "~/path/to/presentation"
+theme :default
+title "Revelation Presentation"
+```
+
+## Adding slides
+
+You can add a slide quickly by typing `revelation slide SLIDE_NAME`. You can also manually create or edit a slide by adding it to the slides folder and then adding `= slide :slide_name`.
+
+`revelation slide SLIDE_NAME` will create a HAML-based slide, but you can feel free to create a slide using whatever template language Revelation supports.
+
+## Template Languages
+
+Revelation knows about HAML and ERB out-of-the-box, but you can also uncomment lines as instructed in the project's Gemfile to auto-enable additional languages. Revelation supports anything Tilt supports, which at this time means:
+
+- ERB
+- Erubis
+- Haml
+- Builder
+- Liquid
+- Markdown
+- Textile
+- RDoc
+- Radius
+- Markaby
+- Nokogiri
+- Wiki
+- Yajl
+
+### More details soon!
 

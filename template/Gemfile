@@ -1,3 +1,0 @@
-source :rubygems
-
-gem 'revelation', path: '..'#git: 'https://github.com/BackForty/revelation.git'
